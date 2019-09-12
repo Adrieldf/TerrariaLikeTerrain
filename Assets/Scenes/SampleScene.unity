@@ -232,11 +232,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456c335593a2e9d41a56ce96bf21b6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GrassPrefab: {fileID: 0}
-  DirtPrefab: {fileID: 0}
-  StonePrefab: {fileID: 0}
+  GrassPrefab: {fileID: 2831995750273173060, guid: 4c4ae7ee3e4168e4ea051f9f0c115a85,
+    type: 3}
+  DirtPrefab: {fileID: 5872099436888098354, guid: 8e43fe81734da5d4ab7b5ad8e7686d2f,
+    type: 3}
+  StonePrefab: {fileID: 1456296832825934287, guid: 9ddbfbbef47f49a43a6f8820ddfad537,
+    type: 3}
   ChunkSize: 32
-  Smoothness: 15
+  Smoothness: 3
   MapSeed: 16
 --- !u!4 &1933617201
 Transform:

@@ -16,12 +16,13 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField]
     private int Smoothness = 15;
     [SerializeField]
-    private float MapSeed = 16;
+    private float MapSeed = 0;
     #endregion
 
 
     void Start()
     {
+        MapSeed = Random.Range(-1000f, 1000f);
         GenerateChunk();
     }
 
@@ -31,15 +32,16 @@ public class WorldGenerator : MonoBehaviour
         int chunkHeight = 0;
         for (int i = 0; i < ChunkSize; i++)
         {
-            int h = Mathf.RoundToInt(Mathf.PerlinNoise(MapSeed, i / Smoothness) * ChunkSize) + chunkHeight;
-            for (int j = 0; j < h; j++)
+            int totalHeight = Mathf.RoundToInt(Mathf.PerlinNoise(MapSeed, i / Smoothness) * ChunkSize) + chunkHeight;
+
+            for (int j = 0; j < totalHeight; j++)
             {
-                Instantiate(GetHeightPrefab(j), new Vector3(i, j), Quaternion.identity);
+                Instantiate(GetHeightPrefab(j, totalHeight), new Vector3(i, j), Quaternion.identity);
             }
         }
 
     }
-    private GameObject GetHeightPrefab(int height)
+    private GameObject GetHeightPrefab(int height, int maxHeight)
     {
         return DirtPrefab;
     }
